@@ -25,6 +25,68 @@ public class App {
         return false;
     }
 
+//C
+
+public class ContadorRepeticoes {
+    public static int contarRepeticoes(ArrayList<Integer> lista) {
+        int totalRepeticoes = 0;
+        ArrayList<Integer> elementosVerificados = new ArrayList<>();
+        
+        for (int i = 0; i < lista.size(); i++) {
+            int elementoAtual = lista.get(i);
+            if (elementosVerificados.contains(elementoAtual)) {
+            }
+            
+            int ocorrencias = 0;
+            for (int j = 0; j < lista.size(); j++) {
+                if (lista.get(j).equals(elementoAtual)) {
+                    ocorrencias++;
+                }
+            }
+            
+            if (ocorrencias > 1) {
+                totalRepeticoes++;
+            }
+            
+            elementosVerificados.add(elementoAtual); 
+        }
+        
+        return totalRepeticoes;
+    }
+}
+
+ //D
+
+public class ContadorRepeticoes {
+    public static ArrayList<Integer> listarRepeticoes(ArrayList<Integer> lista) {
+        ArrayList<Integer> elementosRepetidos = new ArrayList<>();
+        ArrayList<Integer> elementosVerificados = new ArrayList<>();
+
+        for (int i = 0; i < lista.size(); i++) {
+            int elementoAtual = lista.get(i);
+            
+            if (elementosVerificados.contains(elementoAtual)) {
+                continue; 
+            }
+            
+            int ocorrencias = 0;
+            for (int j = 0; j < lista.size(); j++) {
+                if (lista.get(j).equals(elementoAtual)) {
+                    ocorrencias++;
+                }
+            }
+            
+            if (ocorrencias > 1) {
+                elementosRepetidos.add(elementoAtual);
+            }
+            
+            elementosVerificados.add(elementoAtual); 
+        }
+
+        return elementosRepetidos;
+    }
+}
+
     //E
     public static ArrayList<Integer> union(ArrayList<Integer> l1, ArrayList<Integer> l2){
         ArrayList<Integer> uniao = new ArrayList<>(l1);
