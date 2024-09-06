@@ -15,20 +15,18 @@ public class App {
 
     //B
     public static boolean hasRepeat(ArrayList<Integer> l) {
-        ArrayList<Integer> encontrados = new ArrayList<>(); //Cria uma lista 'seen' para armazenar elementos já encontrados na lista original.
-        for (Integer num : l) { //Define a variável num do tipo Integer, que vai armazenar cada elemento da lista l durante a iteração 
-            if (encontrados.contains(num)) { //Verifica se o número num já está na lista seen. Se sim, isso significa que o número é repetido, e o método retorna true.
+        ArrayList<Integer> encontrados = new ArrayList<>(); 
+        for (Integer num : l) { 
+            if (encontrados.contains(num)) { 
                 return true;
             }
-            encontrados.add(num); //Adiciona o número à lista de vistos
+            encontrados.add(num); 
         }
         return false;
     }
 
-//C
-
-public class ContadorRepeticoes {
-    public static int contarRepeticoes(ArrayList<Integer> lista) {
+    //c
+    public static int nroRepeat(ArrayList<Integer> lista) {
         int totalRepeticoes = 0;
         ArrayList<Integer> elementosVerificados = new ArrayList<>();
         
@@ -53,12 +51,9 @@ public class ContadorRepeticoes {
         
         return totalRepeticoes;
     }
-}
 
- //D
-
-public class ContadorRepeticoes {
-    public static ArrayList<Integer> listarRepeticoes(ArrayList<Integer> lista) {
+    //D
+    public static ArrayList<Integer> listRepeat(ArrayList<Integer> lista) {
         ArrayList<Integer> elementosRepetidos = new ArrayList<>();
         ArrayList<Integer> elementosVerificados = new ArrayList<>();
 
@@ -85,7 +80,6 @@ public class ContadorRepeticoes {
 
         return elementosRepetidos;
     }
-}
 
     //E
     public static ArrayList<Integer> union(ArrayList<Integer> l1, ArrayList<Integer> l2){
@@ -99,6 +93,19 @@ public class ContadorRepeticoes {
         return uniao;
     }
 
+    //F
+    public static ArrayList<Integer> intersect(ArrayList<Integer> l1, ArrayList<Integer> l2) {
+        ArrayList<Integer> intList = new ArrayList<>();
+        if (l1.size() == l2.size()) {
+            for (int i = 0; i < l1.size(); i++) {
+                if (l1.get(i) == l2.get(i)) {
+                    intList.add(l1.get(i));
+                }
+            }
+        }
+        return intList;
+    }
+
     //MAIN
     public static void main(String[] args) throws Exception {
         ArrayList <Integer> teste = new ArrayList<Integer>();
@@ -108,16 +115,19 @@ public class ContadorRepeticoes {
         teste.add(3);
         teste.add (6);
         teste.add (4);
-        System.out.println ("O número 3 aparece " + nOcorrencias(teste, 3) + " vezes");
+        System.out.println (nOcorrencias(teste, 3));
         System.out.println(hasRepeat(teste));
+        System.out.println(nroRepeat(teste));
+        System.out.println(listRepeat(teste));
+    
         ArrayList <Integer> teste2 = new ArrayList<Integer>();
         teste2.add(4);
         teste2.add(5);
         teste2.add(6);
         teste2.add(7);
         teste2.add (8);
-        teste2.add (9);
         System.out.println(union(teste, teste2));
+        System.out.println(intersect(teste, teste2));
 
     }
 }
